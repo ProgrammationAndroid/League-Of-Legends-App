@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">League of Legend Tuto</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="hintEditText">Nom du joueur</string>
+    <string name="rechercher">Rechercher</string>
+</resources>

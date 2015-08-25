@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_search"
+    tools:context=".SearchActivity">
+
+
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:src="@drawable/lol_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_player"
+            android:singleLine="true"
+            android:hint="@string/hintEditText"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/pb_search"
+            android:visibility="invisible"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_send"
+        android:text="@string/rechercher"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/lv_recent"
+        android:layout_width="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content">
+
+
+    </ListView>
+
+
+</LinearLayout>
