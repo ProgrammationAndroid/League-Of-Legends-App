@@ -1,38 +1,54 @@
 package app.ipsaous.com.leagueoflegendtuto;
 
-import android.support.v7.app.ActionBarActivity;
+
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+
+import app.ipsaous.com.leagueoflegendtuto.request.ApiRequest;
 
 
-public class SearchActivity extends ActionBarActivity {
+public class SearchActivity extends AppCompatActivity{
+
+    EditText etJoueur;
+    Button btnRechercher;
+    ProgressBar pbLoader;
+    ListView lvRecent;
+    private RequestQueue queue;
+    private ApiRequest request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        queue = MySingleton.getInstance(this).getRequestQueue();
+        request = new ApiRequest(queue, this);
+
+        request.checkPlayerName("Test");
+
+
+        etJoueur = (EditText) findViewById(R.id.et_player);
+        btnRechercher = (Button) findViewById(R.id.btn_send);
+        pbLoader = (ProgressBar) findViewById(R.id.pb_search);
+        lvRecent = (ListView) findViewById(R.id.lv_recent);
+
+        btnRechercher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
