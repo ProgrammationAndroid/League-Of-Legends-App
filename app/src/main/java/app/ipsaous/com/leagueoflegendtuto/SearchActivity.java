@@ -1,7 +1,10 @@
 package app.ipsaous.com.leagueoflegendtuto;
 
 
+import android.app.ActivityManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +26,7 @@ public class SearchActivity extends AppCompatActivity{
     ListView lvRecent;
     private RequestQueue queue;
     private ApiRequest request;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +35,7 @@ public class SearchActivity extends AppCompatActivity{
 
         queue = MySingleton.getInstance(this).getRequestQueue();
         request = new ApiRequest(queue, this);
-
-        request.checkPlayerName("Test");
+        handler = new Handler();
 
 
         etJoueur = (EditText) findViewById(R.id.et_player);
@@ -43,7 +46,50 @@ public class SearchActivity extends AppCompatActivity{
         btnRechercher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+              final String recherche = etJoueur.getText().toString().trim();
 
+                if(recherche.length() > 0){
+                    pbLoader.setVisibility(View.VISIBLE);
+
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            request.checkPlayerName(recherche, new ApiRequest.CheckPlayerCallback() {
+                                @Override
+                                public void onSuccess(String name, long id) {
+                                    pbLoader.setVisibility(View.INVISIBLE);
+                                    Intent intent = new Intent(getApplicationContext(), HistoriqueActivity.class);
+                                    Bundle extras = new Bundle();
+                                    extras.putString("NAME", name);
+                                    extras.putLong("ID", id);
+                                    intent.putExtras(extras);
+                                    startActivity(intent);
+
+
+                                }
+
+                                @Override
+                                public void dontExist(String message) {
+                                    pbLoader.setVisibility(View.INVISIBLE);
+                                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                }
+
+                                @Override
+                                public void onError(String message) {
+                                    pbLoader.setVisibility(View.INVISIBLE);
+                                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                        }
+                    }, 2000);
+
+
+
+                }else{
+                    Toast.makeText(getApplicationContext(), "Vous devez taper un nom de joueur", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

@@ -3,9 +3,11 @@ package app.ipsaous.com.leagueoflegendtuto.request;
 import android.content.Context;
 import android.util.Log;
 
+import com.android.volley.NetworkError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -24,7 +26,7 @@ public class ApiRequest {
         this.context = context;
     }
 
-    public void checkPlayerName(final String name){
+    public void checkPlayerName(final String name, final CheckPlayerCallback callback){
 
         String url = "https://"+region+".api.pvp.net/api/lol/"+region+"/v1.4/summoner/by-name/"+name+"?api_key="+API_KEY;
 
@@ -38,6 +40,7 @@ public class ApiRequest {
                     JSONObject json = response.getJSONObject(name.toLowerCase());
                     String name = json.getString("name");
                     long id = json.getLong("id");
+                    callback.onSuccess(name, id);
 
                 } catch (JSONException e) {
                     Log.d("APP", "EXCEPTION =" + e);
@@ -50,6 +53,11 @@ public class ApiRequest {
             @Override
             public void onErrorResponse(VolleyError error) {
 
+                if(error instanceof NetworkError){
+                    callback.onError("Impossible de se connecter");
+                }else if(error instanceof ServerError){
+                    callback.dontExist("Ce joueur n'existe pas");
+                }
                 Log.d("APP", "ERROR = " + error);
 
             }
@@ -58,6 +66,12 @@ public class ApiRequest {
         queue.add(request);
 
 
+    }
+
+    public interface CheckPlayerCallback{
+        void onSuccess(String name, long id);
+        void dontExist(String message);
+        void onError(String message);
     }
 
 }

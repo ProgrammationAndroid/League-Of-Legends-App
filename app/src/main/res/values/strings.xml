@@ -4,4 +4,7 @@
     <string name="action_settings">Settings</string>
     <string name="hintEditText">Nom du joueur</string>
     <string name="rechercher">Rechercher</string>
+    <string name="title_activity_historique">HistoriqueActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
