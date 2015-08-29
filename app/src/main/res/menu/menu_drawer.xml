@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/menu_principal"
+            android:checked="false"
+            android:icon="@drawable/icon_recents"
+            android:title="@string/menu_principal" />
+
+        <item
+            android:id="@+id/rechercher"
+            android:checked="false"
+            android:icon="@drawable/icon_recents"
+            android:title="@string/rechercher" />
+
+        <item
+            android:id="@+id/stats"
+            android:checked="false"
+            android:icon="@drawable/icon_recents"
+            android:title="@string/statistiques" />
+
+    </group>
+
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+
+    <item
+        android:id="@+id/contact"
+        android:checked="false"
+        android:icon="@drawable/icon_recents"
+        android:title="@string/contact" />
+
+    <item
+        android:id="@+id/apropos"
+        android:checked="false"
+        android:icon="@drawable/icon_recents"
+        android:title="@string/apropos" />
+    </group>
+
+</menu>

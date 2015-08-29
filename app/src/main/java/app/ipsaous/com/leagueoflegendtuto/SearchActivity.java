@@ -83,7 +83,7 @@ public class SearchActivity extends AppCompatActivity{
                             });
 
                         }
-                    }, 2000);
+                    }, 500);
 
 
 

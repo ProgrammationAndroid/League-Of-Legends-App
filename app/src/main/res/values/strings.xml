@@ -7,4 +7,10 @@
     <string name="title_activity_historique">HistoriqueActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="menu_principal">Menu Principal</string>
+    <string name="statistiques">Statistiques</string>
+    <string name="contact">Contact</string>
+    <string name="apropos">A Propos</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

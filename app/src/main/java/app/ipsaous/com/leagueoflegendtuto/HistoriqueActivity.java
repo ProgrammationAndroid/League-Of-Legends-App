@@ -1,16 +1,21 @@
 package app.ipsaous.com.leagueoflegendtuto;
 
+import android.app.Notification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class HistoriqueActivity extends AppCompatActivity {
+public class HistoriqueActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private String playerName;
     private Long playerId;
@@ -27,20 +32,65 @@ public class HistoriqueActivity extends AppCompatActivity {
         Bundle extras = intent.getExtras();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        setSupportActionBar(toolbar);
 
         if(extras.getString("NAME") != null && extras.getLong("ID") > 0){
             playerName = extras.getString("NAME");
             playerId = extras.getLong("ID");
-            toolbar.setTitle(playerName);
+            setTitle(playerName);
+        }else{
+            //Rediriger vers SearchActivity
         }
 
-        setSupportActionBar(toolbar);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.open, R.string.close){
 
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+        };
+
+        mDrawerLayout.setDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
 
     }
 
 
+    @Override
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
 
+        if(menuItem.isChecked()){
+            menuItem.setChecked(false);
+        }else{
+            menuItem.setChecked(true);
+        }
+
+        mDrawerLayout.closeDrawers();
+
+        switch (menuItem.getItemId()){
+
+            case R.id.menu_principal :
+                Toast.makeText(getApplicationContext(), "Menu Principal", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.rechercher :
+                Intent i = new Intent(getApplicationContext(), SearchActivity.class);
+                startActivity(i);
+                finish();
+                return true;
+            case R.id.stats :
+                Toast.makeText(getApplicationContext(), "Statistiques", Toast.LENGTH_SHORT).show();
+                return true;
+
+        }
+
+        return true;
+    }
 }

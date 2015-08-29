@@ -6,8 +6,8 @@
     android:fitsSystemWindows="true">
 
       <RelativeLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
           android:background="@color/background_general">
 
           <include layout="@layout/toolbar"></include>
@@ -28,9 +28,12 @@
         android:layout_width="280dp"
         android:layout_gravity="start"
         android:id="@+id/navigation_view"
+        app:headerLayout="@layout/header_drawer"
+        app:menu="@menu/menu_drawer"
+        android:background="@color/PrimaryColor"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
         android:layout_height="match_parent">
-
-
 
     </android.support.design.widget.NavigationView>
 
