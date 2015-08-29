@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <item name="bg_search" type="color">#ff0b0b0b</item>
-    <item name="white" type="color">#FFF</item>
-
-
+    <color name="bg_search">#ff0b0b0b</color>
+    <color name="white">#FFF</color>
+    <color name="background_general">#ff353535</color>
+    <color name="PrimaryColor">#3f3f3f</color>
+    <color name="DarkPrimaryColor">#212121</color>
 </resources>
