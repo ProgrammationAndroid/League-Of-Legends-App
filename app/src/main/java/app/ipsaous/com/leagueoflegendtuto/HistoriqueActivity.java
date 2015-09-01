@@ -7,12 +7,19 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import app.ipsaous.com.leagueoflegendtuto.adapter.MyAdapter;
 
 
 public class HistoriqueActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,6 +29,8 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
     private Toolbar toolbar;
     private DrawerLayout mDrawerLayout;
     private NavigationView navigationView;
+    private RecyclerView recyclerView;
+    private MyAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +69,22 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        //RecyclerView
+        recyclerView = (RecyclerView) findViewById(R.id.rv_match);
+
+        List<String> data = new ArrayList<>();
+        data.add("premiere donnée");
+        data.add("seconde donnée");
+        data.add("troisieme donnée");
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+        mAdapter = new MyAdapter(this, data);
+        recyclerView.setAdapter(mAdapter);
+
+
+
 
     }
 
