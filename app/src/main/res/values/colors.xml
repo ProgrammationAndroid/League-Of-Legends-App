@@ -6,4 +6,5 @@
     <color name="background_general">#ff353535</color>
     <color name="PrimaryColor">#3f3f3f</color>
     <color name="DarkPrimaryColor">#212121</color>
+    <color name="AccentColor">#181818</color>
 </resources>

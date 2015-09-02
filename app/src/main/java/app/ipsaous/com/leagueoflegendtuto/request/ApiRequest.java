@@ -14,6 +14,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 public class ApiRequest {
 
     private RequestQueue queue;
@@ -73,5 +76,51 @@ public class ApiRequest {
         void dontExist(String message);
         void onError(String message);
     }
+
+    public String getJsonFile(Context context, String filename){
+
+        String json = null;
+
+        try {
+            InputStream is = context.getAssets().open(filename);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return json;
+    }
+
+    public String getChampionName(int champId) throws JSONException{
+
+        String json = getJsonFile(context, "champion.json");
+
+        JSONObject champ = new JSONObject(json);
+        JSONObject data = champ.getJSONObject("data");
+        JSONObject champInfo = data.getJSONObject(String.valueOf(champId));
+        JSONObject image = champInfo.getJSONObject("image");
+        String champName = image.getString("full");
+        return champName;
+
+    }
+
+    public String getSummonerName(int spellId) throws JSONException{
+
+        String json = getJsonFile(context, "summoner-spell.json");
+        JSONObject summoner = new JSONObject(json);
+        JSONObject data = summoner.getJSONObject("data");
+        JSONObject summonerInfo = data.getJSONObject(String.valueOf(spellId));
+        JSONObject image = summonerInfo.getJSONObject("image");
+        String summonerName = image.getString("full");
+        return summonerName;
+    }
+
 
 }

@@ -10,16 +10,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import app.ipsaous.com.leagueoflegendtuto.adapter.MyAdapter;
+import app.ipsaous.com.leagueoflegendtuto.request.ApiRequest;
 
 
 public class HistoriqueActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -31,11 +35,17 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
     private NavigationView navigationView;
     private RecyclerView recyclerView;
     private MyAdapter mAdapter;
+    private ApiRequest request;
+    private RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historique);
+
+        queue = MySingleton.getInstance(this).getRequestQueue();
+        request = new ApiRequest(queue, this);
+
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -71,7 +81,7 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
         navigationView.setNavigationItemSelectedListener(this);
 
         //RecyclerView
-        recyclerView = (RecyclerView) findViewById(R.id.rv_match);
+        /*recyclerView = (RecyclerView) findViewById(R.id.rv_match);
 
         List<String> data = new ArrayList<>();
         data.add("premiere donnée");
@@ -81,7 +91,8 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
         mAdapter = new MyAdapter(this, data);
-        recyclerView.setAdapter(mAdapter);
+        recyclerView.setAdapter(mAdapter);*/
+
 
 
 

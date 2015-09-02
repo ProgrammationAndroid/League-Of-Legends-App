@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     card_view:cardElevation="2dp"
     card_view:contentPadding="5dp"
-    card_view:cornerRadius="2dp"
+    android:layout_marginBottom="5dp"
+    card_view:cardCornerRadius="2dp"
     android:layout_height="90dp">
 
     <RelativeLayout
@@ -18,7 +19,7 @@
             android:id="@+id/win_or_lose"
             android:layout_width="5dp"
             android:layout_height="70dp"
-            android:background="#FF0000" />
+            android:background="#ff0000" />
 
         <ImageView
             android:id="@+id/iv_portrait"
