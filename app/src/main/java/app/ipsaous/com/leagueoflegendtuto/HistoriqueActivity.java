@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import app.ipsaous.com.leagueoflegendtuto.adapter.MyAdapter;
+import app.ipsaous.com.leagueoflegendtuto.entity.MatchEntity;
 import app.ipsaous.com.leagueoflegendtuto.request.ApiRequest;
 
 
@@ -79,6 +80,23 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        request.getHistoryMatches(65218394, new ApiRequest.HistoryCallback() {
+            @Override
+            public void onSuccess(List<MatchEntity> matches) {
+                Log.d("APP", "MATCH = " + matches.toString());
+            }
+
+            @Override
+            public void noMatch(String message) {
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(String message) {
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //RecyclerView
         /*recyclerView = (RecyclerView) findViewById(R.id.rv_match);
