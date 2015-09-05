@@ -81,10 +81,17 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        request.getHistoryMatches(65218394, new ApiRequest.HistoryCallback() {
+        //RecyclerView
+        recyclerView = (RecyclerView) findViewById(R.id.rv_match);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+
+        request.getHistoryMatches(playerId, new ApiRequest.HistoryCallback() {
             @Override
             public void onSuccess(List<MatchEntity> matches) {
-                Log.d("APP", "MATCH = " + matches.toString());
+                mAdapter = new MyAdapter(getApplicationContext(), matches);
+                recyclerView.setAdapter(mAdapter);
             }
 
             @Override
@@ -98,18 +105,7 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
             }
         });
 
-        //RecyclerView
-        /*recyclerView = (RecyclerView) findViewById(R.id.rv_match);
 
-        List<String> data = new ArrayList<>();
-        data.add("premiere donnée");
-        data.add("seconde donnée");
-        data.add("troisieme donnée");
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-        mAdapter = new MyAdapter(this, data);
-        recyclerView.setAdapter(mAdapter);*/
 
 
 

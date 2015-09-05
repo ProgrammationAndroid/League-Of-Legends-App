@@ -7,4 +7,9 @@
     <color name="PrimaryColor">#3f3f3f</color>
     <color name="DarkPrimaryColor">#212121</color>
     <color name="AccentColor">#181818</color>
+    <color name="win">#8BC34A</color>
+    <color name="lose">#F44336</color>
+    <color name="win_row_bg">#ff546150</color>
+    <color name="lose_row_bg">#ff614e4f</color>
+
 </resources>

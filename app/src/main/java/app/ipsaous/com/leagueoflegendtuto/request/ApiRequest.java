@@ -112,9 +112,15 @@ public class ApiRequest {
 
         JSONObject champ = new JSONObject(json);
         JSONObject data = champ.getJSONObject("data");
-        JSONObject champInfo = data.getJSONObject(String.valueOf(champId));
-        JSONObject image = champInfo.getJSONObject("image");
-        String champName = image.getString("full");
+        JSONObject champInfo = null;
+        if(data.has(String.valueOf(champId))){
+            champInfo = data.getJSONObject(String.valueOf(champId));
+        }
+        String champName = "Default";
+        if(champInfo != null){
+            JSONObject image = champInfo.getJSONObject("image");
+            champName = image.getString("full");
+        }
         return champName;
 
     }
@@ -124,9 +130,15 @@ public class ApiRequest {
         String json = getJsonFile(context, "summoner-spell.json");
         JSONObject summoner = new JSONObject(json);
         JSONObject data = summoner.getJSONObject("data");
-        JSONObject summonerInfo = data.getJSONObject(String.valueOf(spellId));
-        JSONObject image = summonerInfo.getJSONObject("image");
-        String summonerName = image.getString("full");
+        JSONObject summonerInfo = null;
+        if(data.has(String.valueOf(spellId))){
+            summonerInfo = data.getJSONObject(String.valueOf(spellId));
+        }
+        String summonerName = "Default";
+        if(summonerInfo != null){
+            JSONObject image = summonerInfo.getJSONObject("image");
+            summonerName = image.getString("full");
+        }
         return summonerName;
     }
 
