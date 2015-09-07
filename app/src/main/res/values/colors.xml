@@ -9,7 +9,9 @@
     <color name="AccentColor">#181818</color>
     <color name="win">#8BC34A</color>
     <color name="lose">#F44336</color>
-    <color name="win_row_bg">#ff546150</color>
-    <color name="lose_row_bg">#ff614e4f</color>
+    <color name="win_row_bg">#4c6145</color>
+    <color name="lose_row_bg">#614543</color>
+    <color name="divider">#CCC</color>
+    <color name="orange">#c2ff8700</color>
 
 </resources>

@@ -1,11 +1,12 @@
 package app.ipsaous.com.leagueoflegendtuto.entity;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class MatchEntity {
+public class MatchEntity implements Serializable{
 
     private boolean winner;
     private long matchId, matchCreation, matchDuration;

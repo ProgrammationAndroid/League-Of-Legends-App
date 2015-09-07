@@ -1,7 +1,7 @@
 package app.ipsaous.com.leagueoflegendtuto.adapter;
 
 import android.content.Context;
-import android.media.Image;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
+import app.ipsaous.com.leagueoflegendtuto.DetailsMatchActivity;
 import app.ipsaous.com.leagueoflegendtuto.R;
 import app.ipsaous.com.leagueoflegendtuto.entity.MatchEntity;
 import app.ipsaous.com.leagueoflegendtuto.helper.Helper;
@@ -36,26 +36,26 @@ public class MyAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View itemView = LayoutInflater.from(context).inflate(R.layout.match_row, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.match_row, parent, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        MatchEntity oneMatch = matches.get(position);
+        final MatchEntity oneMatch = matches.get(position);
 
         if(oneMatch.isWinner()){
             ((MyViewHolder) holder).winOrLose.setBackgroundColor(context.getResources().getColor(R.color.win));
-            ((MyViewHolder) holder).cardView.setCardBackgroundColor(context.getResources().getColor(R.color.win_row_bg));
+            ((MyViewHolder) holder).cardView.setBackgroundResource(R.drawable.state_row_win);
         }else{
             ((MyViewHolder) holder).winOrLose.setBackgroundColor(context.getResources().getColor(R.color.lose));
-            ((MyViewHolder) holder).cardView.setCardBackgroundColor(context.getResources().getColor(R.color.lose_row_bg));
+            ((MyViewHolder) holder).cardView.setBackgroundResource(R.drawable.state_row_lose);
         }
 
-        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/"+oneMatch.getChampName()).into(((MyViewHolder) holder).portrait);
+        Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/5.16.1/img/champion/"+oneMatch.getChampName()).into(((MyViewHolder) holder).portrait);
         ((MyViewHolder) holder).typeMatch.setText(oneMatch.getTypeMatch());
-        ((MyViewHolder) holder).kda.setText(oneMatch.getKills() + " / " + oneMatch.getDeaths() + " / " + oneMatch.getAssists());
+        ((MyViewHolder) holder).kda.setText(oneMatch.getKills() + "/" + oneMatch.getDeaths() + "/" + oneMatch.getAssists());
         ((MyViewHolder) holder).gold.setText(String.valueOf(Math.round(oneMatch.getGold() / 1000.0)) + "K");
         ((MyViewHolder) holder).cs.setText(String.valueOf(oneMatch.getCs()));
 
@@ -70,7 +70,17 @@ public class MyAdapter extends RecyclerView.Adapter {
         ((MyViewHolder) holder).matchDuration.setText(Helper.convertDuration(oneMatch.getMatchDuration()));
         ((MyViewHolder) holder).matchCreation.setText(Helper.convertDate(oneMatch.getMatchCreation()));
 
-        setAnimation(((MyViewHolder) holder).cardView);
+        ((MyViewHolder) holder).itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsMatchActivity.class);
+                intent.putExtra("ONE_MATCH", oneMatch);
+                v.getContext().startActivity(intent);
+
+            }
+        });
+
+       // setAnimation(((MyViewHolder) holder).cardView);
 
 
     }
@@ -94,7 +104,7 @@ public class MyAdapter extends RecyclerView.Adapter {
         View winOrLose;
         ImageView portrait, item1, item2, item3, item4, item5, item6, item7;
         TextView typeMatch, kda, gold, cs, matchDuration, matchCreation;
-        CardView cardView;
+        LinearLayout cardView;
 
 
         public MyViewHolder(View itemView) {
@@ -115,9 +125,11 @@ public class MyAdapter extends RecyclerView.Adapter {
             cs = (TextView) itemView.findViewById(R.id.tv_cs);
             matchDuration = (TextView) itemView.findViewById(R.id.tv_duration);
             matchCreation = (TextView) itemView.findViewById(R.id.tv_date);
-            cardView = (CardView) itemView.findViewById(R.id.cardview);
+            cardView = (LinearLayout) itemView.findViewById(R.id.cardview);
 
 
         }
     }
+
+
 }

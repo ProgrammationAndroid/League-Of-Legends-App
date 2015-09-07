@@ -23,6 +23,10 @@
             android:name=".HistoriqueActivity"
             android:label="@string/title_activity_historique" >
         </activity>
+        <activity
+            android:name=".DetailsMatchActivity"
+            android:label="@string/title_activity_details_match" >
+        </activity>
     </application>
 
 </manifest>

@@ -13,4 +13,7 @@
     <string name="apropos">A Propos</string>
     <string name="open">open</string>
     <string name="close">close</string>
+    <string name="title_activity_details_match">DetailsMatchActivity</string>
+    <string name="vainqueur">Vainqueurs</string>
+    <string name="perdant">Perdants</string>
 </resources>

@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@color/lose" />
+    <item android:drawable="@color/lose_row_bg"/>
+</selector>

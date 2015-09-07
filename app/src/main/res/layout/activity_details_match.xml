@@ -1,0 +1,318 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_general"
+    android:orientation="vertical"
+    tools:context="app.ipsaous.com.leagueoflegendtuto.DetailsMatchActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:padding="10dp"
+        android:background="@color/win_row_bg"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/iv_details_portrait"
+            android:layout_width="70dp"
+            android:src="@drawable/sivir"
+            android:layout_height="70dp" />
+
+        <ImageView
+            android:id="@+id/iv_details_sum1"
+            android:layout_below="@+id/iv_details_portrait"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/summoner_flash"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+        <ImageView
+            android:id="@+id/iv_details_sum2"
+            android:layout_below="@+id/iv_details_portrait"
+            android:layout_toRightOf="@+id/iv_details_sum1"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/summoner_flash"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+
+        <TextView
+            android:id="@+id/tv_details_type_match"
+            android:text="RANKED SOLO 5x5"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            android:layout_toRightOf="@+id/iv_details_portrait"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_details_level"
+            android:layout_marginBottom="5dp"
+            android:text="Level 18"
+            android:layout_below="@+id/tv_details_type_match"
+            android:layout_toRightOf="@+id/iv_details_portrait"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/iv_details_gold"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/tv_details_level"
+            android:layout_toRightOf="@+id/iv_details_portrait"
+            android:src="@drawable/scoreboardicon_gold"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:id="@+id/tv_details_gold"
+            android:layout_alignBottom="@+id/iv_details_gold"
+            android:text="15K"
+            android:layout_toRightOf="@+id/iv_details_gold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/iv_details_cs"
+            android:layout_below="@+id/tv_details_level"
+            android:layout_toRightOf="@+id/tv_details_gold"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/scoreboardicon_minion"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:id="@+id/tv_details_cs"
+            android:layout_alignBottom="@id/iv_details_cs"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/iv_details_cs"
+            android:text="168"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/iv_details_kda"
+            android:layout_below="@+id/tv_details_level"
+            android:layout_toRightOf="@+id/tv_details_cs"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/kda"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <TextView
+            android:id="@+id/tv_details_kda"
+            android:layout_alignBottom="@id/iv_details_kda"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/iv_details_kda"
+            android:text="16/8/5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/iv_details_item1"
+            android:layout_alignBottom="@+id/iv_details_sum2"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/iv_details_sum2"
+            android:src="@drawable/item"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+        <ImageView
+            android:id="@+id/iv_details_item2"
+            android:layout_toRightOf="@+id/iv_details_item1"
+            android:layout_alignBottom="@+id/iv_details_item1"
+            android:src="@drawable/item"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+
+        <ImageView
+            android:id="@+id/iv_details_item3"
+            android:layout_toRightOf="@+id/iv_details_item2"
+            android:layout_alignBottom="@+id/iv_details_item2"
+            android:src="@drawable/item"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+        <ImageView
+            android:id="@+id/iv_details_item4"
+            android:layout_toRightOf="@+id/iv_details_item3"
+            android:layout_alignBottom="@+id/iv_details_item3"
+            android:src="@drawable/item"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+        <ImageView
+            android:id="@+id/iv_details_item5"
+            android:layout_toRightOf="@+id/iv_details_item4"
+            android:layout_alignBottom="@+id/iv_details_item4"
+            android:src="@drawable/item"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+        <ImageView
+            android:id="@+id/iv_details_item6"
+            android:layout_toRightOf="@+id/iv_details_item5"
+            android:layout_alignBottom="@+id/iv_details_item5"
+            android:src="@drawable/item"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+        <ImageView
+            android:id="@+id/iv_details_item7"
+            android:layout_toRightOf="@+id/iv_details_item6"
+            android:layout_alignBottom="@+id/iv_details_item6"
+            android:src="@drawable/item"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+
+        <TextView
+            android:id="@+id/tv_details_duration"
+            android:layout_alignParentRight="true"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="12:35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_details_creation"
+            android:layout_alignParentRight="true"
+            android:text="28/05/15"
+            android:layout_below="@+id/tv_details_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/vainqueur"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal"
+                android:background="@color/win"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_vainqueur1"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:id="@+id/iv_vainqueur2"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:id="@+id/iv_vainqueur3"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:id="@+id/iv_vainqueur4"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:id="@+id/iv_vainqueur5"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:text="@string/perdant"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal"
+                android:background="@color/lose"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_perdants1"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:id="@+id/iv_perdants2"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:id="@+id/iv_perdants3"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:id="@+id/iv_perdants4"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <ImageView
+                    android:id="@+id/iv_perdants5"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/sivir"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_marginTop="20dp"
+                android:background="@color/divider"
+                android:layout_height="2dp" />
+
+            <TextView
+                android:id="@+id/tv_details_stats"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/statistiques"
+                android:textSize="20sp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TableLayout
+                android:id="@+id/tl_details_stats"
+                android:padding="10dp"
+                android:layout_marginBottom="30dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            </TableLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
