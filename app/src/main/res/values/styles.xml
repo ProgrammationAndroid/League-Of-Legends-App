@@ -6,5 +6,8 @@
         <!-- Customize your theme here. -->
         <item name="android:textColor">@color/white</item>
     </style>
+    <style name="CardViewStyle" parent="android:Widget.TextView">
+        <item name="android:foreground">@drawable/state_row_win</item>
+    </style>
 
 </resources>

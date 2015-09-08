@@ -47,10 +47,10 @@ public class MyAdapter extends RecyclerView.Adapter {
 
         if(oneMatch.isWinner()){
             ((MyViewHolder) holder).winOrLose.setBackgroundColor(context.getResources().getColor(R.color.win));
-            ((MyViewHolder) holder).cardView.setBackgroundResource(R.drawable.state_row_win);
+            ((MyViewHolder) holder).cardView.setCardBackgroundColor(context.getResources().getColor(R.color.win_row_bg));
         }else{
             ((MyViewHolder) holder).winOrLose.setBackgroundColor(context.getResources().getColor(R.color.lose));
-            ((MyViewHolder) holder).cardView.setBackgroundResource(R.drawable.state_row_lose);
+            ((MyViewHolder) holder).cardView.setCardBackgroundColor(context.getResources().getColor(R.color.lose_row_bg));
         }
 
         Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/5.16.1/img/champion/"+oneMatch.getChampName()).into(((MyViewHolder) holder).portrait);
@@ -104,7 +104,7 @@ public class MyAdapter extends RecyclerView.Adapter {
         View winOrLose;
         ImageView portrait, item1, item2, item3, item4, item5, item6, item7;
         TextView typeMatch, kda, gold, cs, matchDuration, matchCreation;
-        LinearLayout cardView;
+        CardView cardView;
 
 
         public MyViewHolder(View itemView) {
@@ -125,7 +125,7 @@ public class MyAdapter extends RecyclerView.Adapter {
             cs = (TextView) itemView.findViewById(R.id.tv_cs);
             matchDuration = (TextView) itemView.findViewById(R.id.tv_duration);
             matchCreation = (TextView) itemView.findViewById(R.id.tv_date);
-            cardView = (LinearLayout) itemView.findViewById(R.id.cardview);
+            cardView = (CardView) itemView.findViewById(R.id.cardview);
 
 
         }

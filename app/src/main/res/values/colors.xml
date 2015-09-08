@@ -13,5 +13,6 @@
     <color name="lose_row_bg">#614543</color>
     <color name="divider">#CCC</color>
     <color name="orange">#c2ff8700</color>
+    <color name="pressed">#2affffff</color>
 
 </resources>

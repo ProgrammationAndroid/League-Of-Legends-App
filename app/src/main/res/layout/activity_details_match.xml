@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_general"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="app.ipsaous.com.leagueoflegendtuto.DetailsMatchActivity">
 
@@ -207,24 +208,28 @@
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_vainqueur2"
+                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_vainqueur3"
+                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_vainqueur4"
+                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_vainqueur5"
+                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/sivir"
                     android:layout_width="50dp"
@@ -258,24 +263,28 @@
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_perdants2"
+                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_perdants3"
+                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_perdants4"
+                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_perdants5"
+                    android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/sivir"
                     android:layout_width="50dp"
