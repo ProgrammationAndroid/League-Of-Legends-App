@@ -121,6 +121,7 @@ public class ApiRequest {
             JSONObject image = champInfo.getJSONObject("image");
             champName = image.getString("full");
         }
+
         return champName;
 
     }

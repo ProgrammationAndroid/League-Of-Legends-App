@@ -1,15 +1,19 @@
 package app.ipsaous.com.leagueoflegendtuto.helper;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
 import app.ipsaous.com.leagueoflegendtuto.R;
+import app.ipsaous.com.leagueoflegendtuto.request.ApiRequest;
 
 /**
  * Created by ipsaous on 05/09/2015.
@@ -19,7 +23,6 @@ public class Helper {
     public static void setImageItems(Context context, int item, ImageView image){
 
         if(item != 0){
-
             Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/5.16.1/img/item/"+item+".png ").error(R.drawable.empty).into(image);
 
         }else{
@@ -78,6 +81,20 @@ public class Helper {
             formattedDuration = String.valueOf(heureInt) + ":" + finalMinute + ":" + finalSeconde;
         }
         return formattedDuration;
+    }
+
+    public static void setImagePortraits(Context context, int champId, ImageView image, ApiRequest request){
+
+        String portrait = null;
+
+        try {
+            portrait = request.getChampionName(champId);
+            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/5.16.1/img/champion/"+portrait).into(image);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
 

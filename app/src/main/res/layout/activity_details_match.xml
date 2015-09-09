@@ -7,6 +7,7 @@
     tools:context="app.ipsaous.com.leagueoflegendtuto.DetailsMatchActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_infos_joueur"
         android:layout_width="fill_parent"
         android:padding="10dp"
         android:background="@color/win_row_bg"
