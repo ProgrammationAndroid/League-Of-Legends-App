@@ -19,10 +19,10 @@
             android:title="@string/rechercher" />
 
         <item
-            android:id="@+id/stats"
+            android:id="@+id/champions"
             android:checked="false"
             android:icon="@drawable/icon_recents"
-            android:title="@string/statistiques" />
+            android:title="@string/champions" />
 
     </group>
 

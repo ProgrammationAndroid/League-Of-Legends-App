@@ -135,8 +135,10 @@ public class HistoriqueActivity extends AppCompatActivity implements NavigationV
                 startActivity(i);
                 finish();
                 return true;
-            case R.id.stats :
-                Toast.makeText(getApplicationContext(), "Statistiques", Toast.LENGTH_SHORT).show();
+            case R.id.champions :
+                Intent intent = new Intent(getApplicationContext(), ChampionsActivity.class);
+                startActivity(intent);
+                finish();
                 return true;
 
         }

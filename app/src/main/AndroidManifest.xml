@@ -27,6 +27,10 @@
             android:name=".DetailsMatchActivity"
             android:label="@string/title_activity_details_match" >
         </activity>
+        <activity
+            android:name=".ChampionsActivity"
+            android:label="@string/title_activity_champions" >
+        </activity>
     </application>
 
 </manifest>

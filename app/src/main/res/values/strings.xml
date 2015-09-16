@@ -16,4 +16,6 @@
     <string name="title_activity_details_match">DetailsMatchActivity</string>
     <string name="vainqueur">Vainqueurs</string>
     <string name="perdant">Perdants</string>
+    <string name="title_activity_champions">ChampionsActivity</string>
+    <string name="champions">Champions</string>
 </resources>

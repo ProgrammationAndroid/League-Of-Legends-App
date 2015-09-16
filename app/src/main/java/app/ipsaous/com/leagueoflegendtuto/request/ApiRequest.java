@@ -20,9 +20,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import app.ipsaous.com.leagueoflegendtuto.entity.Champion;
 import app.ipsaous.com.leagueoflegendtuto.entity.MatchEntity;
 
 public class ApiRequest {
@@ -315,6 +317,41 @@ public class ApiRequest {
         void onError(String message);
     }
 
+    public void getAllChampions(AllChampionsCallback callback){
+        List<Champion> allChampions = new ArrayList<>();
+        String json = getJsonFile(context, "champion.json");
+        String champName = null;
+        JSONObject champ = null;
+
+        try {
+            champ = new JSONObject(json);
+            JSONObject data = champ.getJSONObject("data");
+
+            Iterator<String> keys = data.keys();
+            while(keys.hasNext()){
+                String key = keys.next();
+                JSONObject inner = data.getJSONObject(key);
+                JSONObject image = inner.getJSONObject("image");
+                String champImage = image.getString("full");
+                Champion champion = new Champion();
+                champion.setId(Integer.valueOf(key));
+                champion.setImageName(champImage);
+                allChampions.add(champion);
+            }
+
+            callback.onSuccess(allChampions);
+
+        } catch (JSONException e) {
+            callback.onError("Une erreur s'est produite");
+            e.printStackTrace();
+        }
+
+    }
+
+    public interface AllChampionsCallback{
+        void onSuccess(List<Champion> listChampions);
+        void onError(String message);
+    }
 
 
 }
