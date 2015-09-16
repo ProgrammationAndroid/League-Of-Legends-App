@@ -147,15 +147,8 @@ public class DetailsMatchActivity extends AppCompatActivity {
 
                 statistiques.addView(row, new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-
-
             }
-
-
         }
-
-
-
 
     }
 
