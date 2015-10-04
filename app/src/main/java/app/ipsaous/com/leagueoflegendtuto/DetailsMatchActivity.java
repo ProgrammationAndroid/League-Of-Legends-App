@@ -105,17 +105,18 @@ public class DetailsMatchActivity extends AppCompatActivity {
 
             //Rajout des perdants
 
-            Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(0), perdant1, request);
-            Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(1), perdant2, request);
-            Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(2), perdant3, request);
-            Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(3), perdant4, request);
+            if(oneMatch.getTeamLoser().size() > 0) { // Si c'est un match contre l'ordinateur cette liste sera vide. On fait donc une vérification
+                Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(0), perdant1, request);
+                Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(1), perdant2, request);
+                Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(2), perdant3, request);
+                Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(3), perdant4, request);
 
-            if(oneMatch.getChampId() == oneMatch.getTeamLoser().get(4) && oneMatch.isWinner() == false){
-                perdant5.getLayoutParams().height = size;
-                perdant5.getLayoutParams().width = size;
+                if (oneMatch.getChampId() == oneMatch.getTeamLoser().get(4) && oneMatch.isWinner() == false) {
+                    perdant5.getLayoutParams().height = size;
+                    perdant5.getLayoutParams().width = size;
+                }
+                Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(4), perdant5, request);
             }
-            Helper.setImagePortraits(this, oneMatch.getTeamLoser().get(4), perdant5, request);
-
             //Affichage des statistiques
 
             Iterator iterator = oneMatch.getStats().entrySet().iterator();

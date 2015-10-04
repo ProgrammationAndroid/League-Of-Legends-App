@@ -17,7 +17,6 @@
         <ImageView
             android:id="@+id/iv_details_portrait"
             android:layout_width="70dp"
-            android:src="@drawable/sivir"
             android:layout_height="70dp" />
 
         <ImageView
@@ -204,35 +203,30 @@
                 <ImageView
                     android:id="@+id/iv_vainqueur1"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_vainqueur2"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_vainqueur3"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_vainqueur4"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_vainqueur5"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
 
@@ -259,35 +253,30 @@
                 <ImageView
                     android:id="@+id/iv_perdants1"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_perdants2"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_perdants3"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_perdants4"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <ImageView
                     android:id="@+id/iv_perdants5"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/sivir"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
 

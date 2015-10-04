@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -89,7 +90,17 @@ public class Helper {
 
         try {
             portrait = request.getChampionName(champId);
-            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/5.16.1/img/champion/"+portrait).into(image);
+            Picasso.with(context).load("http://ddragon.leagueoflegends.com/cdn/5.16.1/img/champion/"+portrait).into(image, new Callback() {
+                @Override
+                public void onSuccess() {
+                    Log.d("APP", "C'est tout bon");
+                }
+
+                @Override
+                public void onError() {
+                    Log.d("APP", "Il y a une erreur");
+                }
+            });
         } catch (JSONException e) {
             e.printStackTrace();
         }
